@@ -1,121 +1,188 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jadwal Kuliah</title>
-    <style>
-        body {
-            background-color: #111;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            width: 90%;
-            max-width: 800px;
-            margin: auto;
-        }
-        table {
-            width: 100%;
-            margin-top: 20px;
-            margin-left: -28px;
-            border-collapse: collapse;
-            background-color: #222;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        th, td {
-            border: 1px solid #444;
-            padding: 12px;
-            text-align: center;
-        }
-        th {
-            background-color: #333;
-            text-transform: uppercase;
-        }
-        h1, h2 {
-            text-align: center;
-        }
-        h2 {
-            margin-top: 30px;
-            background-color: #333;
-            padding: 10px;
-            border-radius: 5px;
-            display: inline-block;
-        }
-        tr:nth-child(even) {
-            background-color: #2a2a2a;
-        }
-        .whatsapp-link a {
-            color: #25D366;
-            text-decoration: none;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jadwal Kuliah Mingguan</title>
+  <style>
+    :root{
+      --bg:#f1f5f9;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --line:#e2e8f0;
+      --accent:#2563eb;
+      --accent-light:#dbeafe;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Segoe UI',Roboto,Ubuntu,Inter,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    .wrap{
+      max-width:960px;
+      margin:40px auto;
+      padding:0 16px;
+    }
+    h1{
+      font-size:clamp(24px,4vw,32px);
+      margin:0 0 24px;
+      text-align:center;
+      color:var(--accent);
+    }
+    h2{
+      margin:30px 0 12px;
+      font-size:22px;
+      color:var(--accent);
+      border-left:6px solid var(--accent);
+      padding-left:10px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      box-shadow:0 4px 12px rgba(15,23,42,.08);
+      overflow:hidden;
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 8px 20px rgba(15,23,42,.15);
+    }
+    table{width:100%;border-collapse:collapse}
+    thead th{
+      background:var(--accent-light);
+      text-align:left;
+      font-weight:700;
+      border-bottom:2px solid var(--accent);
+      padding:14px;
+      color:var(--accent);
+    }
+    tbody td{
+      padding:14px;
+      border-top:1px solid var(--line);
+    }
+    tbody tr:nth-child(even){background:#f9fafb}
+    tbody tr:hover{background:#f1f5f9}
+    .mk{font-weight:600;color:#1e293b}
+    .ruang{font-feature-settings:"tnum" 1;font-weight:500}
+
+    @media (max-width:700px){
+      thead{display:none}
+      tbody td{display:block;border-top:none;border-bottom:1px dashed var(--line)}
+      tbody tr{border-top:1px solid var(--line)}
+      tbody td[data-label]{padding-top:6px}
+      tbody td::before{content:attr(data-label)" : ";font-weight:600;color:var(--muted)}
+      tbody td:last-child{border-bottom:none}
+    }
+    @media print{
+      body{background:#fff}
+      .wrap{margin:0;max-width:none}
+      .card{box-shadow:none;border-radius:0}
+      h1,h2{color:#000}
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Jadwal 4B Sistem Informasi</h1>
-        
-        <h2>Senin</h2>
-        <table>
-            <tr>
-                <th>Jam</th><th>Mata Kuliah</th><th>Dosen Pengampu</th><th>WhatsApp</th>
-            </tr>
-            <tr>
-                <td>07:30 - 10:00</td><td style="text-align: center;">Sistem Operasi</td><td style="text-align: center;">Bastomi Baharsyah, M.Kom</td><td class="whatsapp-link"><a href="https://chat.whatsapp.com/JQKw5qntyoO90ymhEImKFi">Join</a></td>
-            </tr>
-            <tr>
-                <td>13:00 - 15:30</td><td style="text-align: center;">Tata Kelola Teknologi Informasi</td><td style="text-align: center;">Ade Novia Maulana, M.Sc.</td><td class="whatsapp-link"><a href="https://chat.whatsapp.com/FMkXN5BTagJI7kt5vmGulp">Join</a></td>
-            </tr>
-        </table>
-        
-        <h2>Selasa</h2>
-        <table>
-            <tr>
-                <th>Jam</th><th>Mata Kuliah</th><th>Dosen Pengampu</th><th>WhatsApp</th>
-            </tr>
-            <tr>
-                <td>07:30 - 09:10</td><td style="text-align: center;">Bahasa Arab</td><td style="text-align: center;">Dr. Jamilah, M.Pd.I</td><td class="whatsapp-link"><a href="https://chat.whatsapp.com/CVnJtTfMaea15KSFeQWOMD">Join</a></td>
-            </tr>
-            <tr>
-                <td>13:00 - 15:30</td><td style="text-align: center;">Manajemen Proses Bisnis</td><td style="text-align: center;">Efitra, M.Kom</td><td class="whatsapp-link"><a href="https://chat.whatsapp.com/CDkCMs8zUgB07iQRGZv0P3">Join</a></td>
-            </tr>
-        </table>
-        
-        <h2>Rabu</h2>
-        <table>
-            <tr>
-                <th>Jam</th><th>Mata Kuliah</th><th>Dosen Pengampu</th><th>WhatsApp</th>
-            </tr>
-            <tr>
-                <td>07:30 - 10:00</td><td style="text-align: center;">Komunikasi Bisnis Dan Teknis</td><td style="text-align: center;">Asriyadi. S. Sos. I, M. Ag</td><td class="whatsapp-link"><a href="https://chat.whatsapp.com/KfuVO2aCQ9gHRgisHdFGDl">Join</a></td>
-            </tr>
-            <tr>
-                <td>13:00 - 15:30</td><td style="text-align: center;">Analisa Dan Perancangan Sistem Informasi</td><td style="text-align: center;">Heru Kurniawan, M.Kom</td><td class="whatsapp-link"><a href="https://chat.whatsapp.com/HgfSwHTjomg5ns6ostMDzr">Join</a></td>
-            </tr>
-        </table>
-        
-        <h2>Kamis</h2>
-        <table>
-            <tr>
-                <th>Jam</th><th>Mata Kuliah</th><th>Dosen Pengampu</th><th>WhatsApp</th>
-            </tr>
-            <tr>
-                <td>07:30 - 10:00</td><td style="text-align: center;">Manajemen Proyek Sistem Informasi</td><td style="text-align: center;">Albet Triadi, M.Kom</td><td class="whatsapp-link"><a href="https://chat.whatsapp.com/Jq3wmkkrUCd02I50aFvWSM">Join</a></td>
-            </tr>
-            <tr>
-                <td>13:00 - 15:30</td><td style="text-align: center;">Metodologi Penelitian Dan Riset</td><td style="text-align: center;">Hery Afriyadi, SE., S.Kom, M.Si</td><td class="whatsapp-link"><a href="https://chat.whatsapp.com/CiXPpUgrUp5E5lGGNNYh2b">Join</a></td>
-            </tr>
-        </table>
+  <main class="wrap">
+    <h1>Jadwal Kuliah Mingguan</h1>
 
-        <div class="class-info">
-            <p><strong>Kelas:</strong> Ruang C-603 Lantai 6</p>
-        </div>
+    <!-- Senin -->
+    <h2>Senin</h2>
+    <section class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>Waktu</th>
+            <th>Mata Kuliah</th>
+            <th>Ruang</th>
+            <th>Dosen Pengampu</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Waktu">12:30 – 15:00</td>
+            <td class="mk" data-label="Mata Kuliah">Rekayasa Perangkat Lunak</td>
+            <td class="ruang" data-label="Ruang">B-602</td>
+            <td data-label="Dosen">Dila Nurlaila, M.Kom</td>
+          </tr>
+          <tr>
+            <td data-label="Waktu">15:01 – 18:21</td>
+            <td class="mk" data-label="Mata Kuliah">Pemrograman Mobile</td>
+            <td class="ruang" data-label="Ruang">B-602</td>
+            <td data-label="Dosen">Ahmad Nasukha, S.Hum., M.S.I</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
-    </div>
+    <!-- Rabu -->
+    <h2>Rabu</h2>
+    <section class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>Waktu</th>
+            <th>Mata Kuliah</th>
+            <th>Ruang</th>
+            <th>Dosen Pengampu</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Waktu">12:30 – 15:00</td>
+            <td class="mk" data-label="Mata Kuliah">Testing dan Implementasi System</td>
+            <td class="ruang" data-label="Ruang">B-602</td>
+            <td data-label="Dosen">Fatima Felawati, S.Kom., M.Kom</td>
+          </tr>
+          <tr>
+            <td data-label="Waktu">15:01 – 18:21</td>
+            <td class="mk" data-label="Mata Kuliah">Multimedia</td>
+            <td class="ruang" data-label="Ruang">B-602</td>
+            <td data-label="Dosen">Pol Metra, M.Kom</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Kamis -->
+    <h2>Kamis</h2>
+    <section class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>Waktu</th>
+            <th>Mata Kuliah</th>
+            <th>Ruang</th>
+            <th>Dosen Pengampu</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Waktu">07:30 – 09:10</td>
+            <td class="mk" data-label="Mata Kuliah">Islam Peradaban Melayu</td>
+            <td class="ruang" data-label="Ruang">C-602</td>
+            <td data-label="Dosen">Dr. Benny Agusti Putra, M.Hum</td>
+          </tr>
+          <tr>
+            <td data-label="Waktu">12:30 – 15:00</td>
+            <td class="mk" data-label="Mata Kuliah">Technopreneurship</td>
+            <td class="ruang" data-label="Ruang">B-602</td>
+            <td data-label="Dosen">M. Yusuf, S.Kom., M.S.I</td>
+          </tr>
+          <tr>
+            <td data-label="Waktu">15:01 – 17:31</td>
+            <td class="mk" data-label="Mata Kuliah">Manajemen Resiko</td>
+            <td class="ruang" data-label="Ruang">B-602</td>
+            <td data-label="Dosen">Wahyu Anggoro, M.Kom</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
 </body>
 </html>
