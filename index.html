@@ -51,7 +51,12 @@
     .mk-title {
       font-weight: bold;
       font-size: 1.2rem;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
+    }
+    .mk-dosen {
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+      font-style: italic;
     }
     .mk-info {
       font-size: 0.95rem;
@@ -62,7 +67,6 @@
     .mk-2 { border-left: 6px solid #9b59b6; }
     .mk-3 { border-left: 6px solid #f39c12; }
     .mk-4 { border-left: 6px solid #1abc9c; }
-    .mk-5 { border-left: 6px solid #2ecc71; }
     .mk-6 { border-left: 6px solid #3498db; }
     .mk-7 { border-left: 6px solid #e67e22; }
 
@@ -132,11 +136,13 @@
       <h3>Senin</h3>
       <div class="mk-card mk-1">
         <div class="mk-title">Rekayasa Perangkat Lunak</div>
-        <div class="mk-info">12:30 – 15:00 | Ruang B-602 | Dila Nurlaila, M.Kom</div>
+        <div class="mk-dosen">Dila Nurlaila, M.Kom</div>
+        <div class="mk-info">Ruang B-602 | 12:30 – 15:00</div>
       </div>
       <div class="mk-card mk-2">
         <div class="mk-title">Pemrograman Mobile</div>
-        <div class="mk-info">15:01 – 18:21 | Ruang B-602 | Ahmad Nasukha, S.Hum., M.S.I</div>
+        <div class="mk-dosen">Ahmad Nasukha, S.Hum., M.S.I</div>
+        <div class="mk-info">Ruang B-602 | 15:01 – 18:21</div>
       </div>
     </div>
 
@@ -144,36 +150,51 @@
       <h3>Rabu</h3>
       <div class="mk-card mk-3">
         <div class="mk-title">Testing dan Implementasi Sistem</div>
-        <div class="mk-info">12:30 – 15:00 | Ruang B-602 | Fatima Felawati, S.Kom., M.Kom</div>
+        <div class="mk-dosen">Fatima Felawati, S.Kom., M.Kom</div>
+        <div class="mk-info">Ruang B-602 | 12:30 – 15:00</div>
       </div>
       <div class="mk-card mk-4">
         <div class="mk-title">Multimedia</div>
-        <div class="mk-info">15:01 – 18:21 | Ruang B-602 | Pol Metra, M.Kom</div>
+        <div class="mk-dosen">Pol Metra, M.Kom</div>
+        <div class="mk-info">Ruang B-602 | 15:01 – 18:21</div>
       </div>
     </div>
 
     <div class="day">
       <h3>Kamis</h3>
-      <div class="mk-card mk-5">
-        <div class="mk-title">Islam Peradaban Melayu</div>
-        <div class="mk-info">07:30 – 09:10 | Ruang C-602 | Dr. Benny Agusti Putra, M.Hum</div>
-      </div>
       <div class="mk-card mk-6">
         <div class="mk-title">Technopreneurship</div>
-        <div class="mk-info">12:30 – 15:00 | Ruang B-602 | M. Yusuf, S.Kom., M.S.I</div>
+        <div class="mk-dosen">M. Yusuf, S.Kom., M.S.I</div>
+        <div class="mk-info">Ruang B-602 | 12:30 – 15:00</div>
       </div>
       <div class="mk-card mk-7">
         <div class="mk-title">Manajemen Resiko</div>
-        <div class="mk-info">15:01 – 17:31 | Ruang B-602 | Wahyu Anggoro, M.Kom</div>
+        <div class="mk-dosen">Wahyu Anggoro, M.Kom</div>
+        <div class="mk-info">Ruang B-602 | 15:01 – 17:31</div>
       </div>
     </div>
   </div>
 
   <script>
-    const toggle = document.getElementById('darkToggle');
-    toggle.addEventListener('change', () => {
-      document.body.classList.toggle('dark', toggle.checked);
-    });
-  </script>
+  const toggle = document.getElementById('darkToggle');
+
+  // Saat halaman dibuka, cek preferensi user di localStorage
+  if (localStorage.getItem('mode') === 'dark') {
+    document.body.classList.add('dark');
+    toggle.checked = true;
+  }
+
+  // Saat toggle diubah, simpan preferensi ke localStorage
+  toggle.addEventListener('change', () => {
+    if (toggle.checked) {
+      document.body.classList.add('dark');
+      localStorage.setItem('mode', 'dark');
+    } else {
+      document.body.classList.remove('dark');
+      localStorage.setItem('mode', 'light');
+    }
+  });
+</script>
+
 </body>
 </html>
