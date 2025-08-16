@@ -1,188 +1,179 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jadwal Kuliah Mingguan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jadwal Kuliah</title>
   <style>
-    :root{
-      --bg:#f1f5f9;
-      --card:#ffffff;
-      --text:#0f172a;
-      --muted:#475569;
-      --line:#e2e8f0;
-      --accent:#2563eb;
-      --accent-light:#dbeafe;
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f6f8;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:'Segoe UI',Roboto,Ubuntu,Inter,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.6;
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
     }
-    .wrap{
-      max-width:960px;
-      margin:40px auto;
-      padding:0 16px;
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 1.8rem;
+      color: #2c3e50;
+      transition: color 0.3s;
     }
-    h1{
-      font-size:clamp(24px,4vw,32px);
-      margin:0 0 24px;
-      text-align:center;
-      color:var(--accent);
+    .day {
+      margin-bottom: 40px;
     }
-    h2{
-      margin:30px 0 12px;
-      font-size:22px;
-      color:var(--accent);
-      border-left:6px solid var(--accent);
-      padding-left:10px;
+    .day h3 {
+      background: linear-gradient(90deg, #3498db, #2ecc71);
+      color: #fff;
+      padding: 12px;
+      border-radius: 8px;
+      margin: 0 0 15px 0;
+      font-size: 1.3rem;
     }
-    .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:16px;
-      box-shadow:0 4px 12px rgba(15,23,42,.08);
-      overflow:hidden;
-      transition:transform .2s ease, box-shadow .2s ease;
+    .mk-card {
+      background: #fff;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      padding: 15px 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s, color 0.3s;
     }
-    .card:hover{
-      transform:translateY(-3px);
-      box-shadow:0 8px 20px rgba(15,23,42,.15);
+    .mk-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.12);
     }
-    table{width:100%;border-collapse:collapse}
-    thead th{
-      background:var(--accent-light);
-      text-align:left;
-      font-weight:700;
-      border-bottom:2px solid var(--accent);
-      padding:14px;
-      color:var(--accent);
+    .mk-title {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
     }
-    tbody td{
-      padding:14px;
-      border-top:1px solid var(--line);
+    .mk-info {
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
-    tbody tr:nth-child(even){background:#f9fafb}
-    tbody tr:hover{background:#f1f5f9}
-    .mk{font-weight:600;color:#1e293b}
-    .ruang{font-feature-settings:"tnum" 1;font-weight:500}
+    /* Warna berbeda tiap mata kuliah */
+    .mk-1 { border-left: 6px solid #e74c3c; }
+    .mk-2 { border-left: 6px solid #9b59b6; }
+    .mk-3 { border-left: 6px solid #f39c12; }
+    .mk-4 { border-left: 6px solid #1abc9c; }
+    .mk-5 { border-left: 6px solid #2ecc71; }
+    .mk-6 { border-left: 6px solid #3498db; }
+    .mk-7 { border-left: 6px solid #e67e22; }
 
-    @media (max-width:700px){
-      thead{display:none}
-      tbody td{display:block;border-top:none;border-bottom:1px dashed var(--line)}
-      tbody tr{border-top:1px solid var(--line)}
-      tbody td[data-label]{padding-top:6px}
-      tbody td::before{content:attr(data-label)" : ";font-weight:600;color:var(--muted)}
-      tbody td:last-child{border-bottom:none}
+    /* Dark mode */
+    body.dark {
+      background-color: #1e1e1e;
+      color: #eee;
     }
-    @media print{
-      body{background:#fff}
-      .wrap{margin:0;max-width:none}
-      .card{box-shadow:none;border-radius:0}
-      h1,h2{color:#000}
+    body.dark h2 {
+      color: #f39c12;
+    }
+    body.dark .day h3 {
+      background: linear-gradient(90deg, #8e44ad, #2980b9);
+    }
+    body.dark .mk-card {
+      background: #2c2c2c;
+      color: #f0f0f0;
+    }
+    /* Toggle switch */
+    .switch {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    .switch input {
+      display: none;
+    }
+    .slider {
+      width: 50px;
+      height: 25px;
+      background: #ccc;
+      border-radius: 25px;
+      position: relative;
+      transition: background 0.3s;
+    }
+    .slider::before {
+      content: "";
+      position: absolute;
+      width: 21px;
+      height: 21px;
+      left: 2px;
+      bottom: 2px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+    input:checked + .slider {
+      background: #3498db;
+    }
+    input:checked + .slider::before {
+      transform: translateX(25px);
     }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <h1>Jadwal Kuliah Mingguan</h1>
+  <label class="switch">
+    <input type="checkbox" id="darkToggle">
+    <span class="slider"></span>
+  </label>
+  <div class="container">
+    <h2>Jadwal Kuliah</h2>
 
-    <!-- Senin -->
-    <h2>Senin</h2>
-    <section class="card">
-      <table>
-        <thead>
-          <tr>
-            <th>Waktu</th>
-            <th>Mata Kuliah</th>
-            <th>Ruang</th>
-            <th>Dosen Pengampu</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td data-label="Waktu">12:30 – 15:00</td>
-            <td class="mk" data-label="Mata Kuliah">Rekayasa Perangkat Lunak</td>
-            <td class="ruang" data-label="Ruang">B-602</td>
-            <td data-label="Dosen">Dila Nurlaila, M.Kom</td>
-          </tr>
-          <tr>
-            <td data-label="Waktu">15:01 – 18:21</td>
-            <td class="mk" data-label="Mata Kuliah">Pemrograman Mobile</td>
-            <td class="ruang" data-label="Ruang">B-602</td>
-            <td data-label="Dosen">Ahmad Nasukha, S.Hum., M.S.I</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+    <div class="day">
+      <h3>Senin</h3>
+      <div class="mk-card mk-1">
+        <div class="mk-title">Rekayasa Perangkat Lunak</div>
+        <div class="mk-info">12:30 – 15:00 | Ruang B-602 | Dila Nurlaila, M.Kom</div>
+      </div>
+      <div class="mk-card mk-2">
+        <div class="mk-title">Pemrograman Mobile</div>
+        <div class="mk-info">15:01 – 18:21 | Ruang B-602 | Ahmad Nasukha, S.Hum., M.S.I</div>
+      </div>
+    </div>
 
-    <!-- Rabu -->
-    <h2>Rabu</h2>
-    <section class="card">
-      <table>
-        <thead>
-          <tr>
-            <th>Waktu</th>
-            <th>Mata Kuliah</th>
-            <th>Ruang</th>
-            <th>Dosen Pengampu</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td data-label="Waktu">12:30 – 15:00</td>
-            <td class="mk" data-label="Mata Kuliah">Testing dan Implementasi System</td>
-            <td class="ruang" data-label="Ruang">B-602</td>
-            <td data-label="Dosen">Fatima Felawati, S.Kom., M.Kom</td>
-          </tr>
-          <tr>
-            <td data-label="Waktu">15:01 – 18:21</td>
-            <td class="mk" data-label="Mata Kuliah">Multimedia</td>
-            <td class="ruang" data-label="Ruang">B-602</td>
-            <td data-label="Dosen">Pol Metra, M.Kom</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+    <div class="day">
+      <h3>Rabu</h3>
+      <div class="mk-card mk-3">
+        <div class="mk-title">Testing dan Implementasi Sistem</div>
+        <div class="mk-info">12:30 – 15:00 | Ruang B-602 | Fatima Felawati, S.Kom., M.Kom</div>
+      </div>
+      <div class="mk-card mk-4">
+        <div class="mk-title">Multimedia</div>
+        <div class="mk-info">15:01 – 18:21 | Ruang B-602 | Pol Metra, M.Kom</div>
+      </div>
+    </div>
 
-    <!-- Kamis -->
-    <h2>Kamis</h2>
-    <section class="card">
-      <table>
-        <thead>
-          <tr>
-            <th>Waktu</th>
-            <th>Mata Kuliah</th>
-            <th>Ruang</th>
-            <th>Dosen Pengampu</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td data-label="Waktu">07:30 – 09:10</td>
-            <td class="mk" data-label="Mata Kuliah">Islam Peradaban Melayu</td>
-            <td class="ruang" data-label="Ruang">C-602</td>
-            <td data-label="Dosen">Dr. Benny Agusti Putra, M.Hum</td>
-          </tr>
-          <tr>
-            <td data-label="Waktu">12:30 – 15:00</td>
-            <td class="mk" data-label="Mata Kuliah">Technopreneurship</td>
-            <td class="ruang" data-label="Ruang">B-602</td>
-            <td data-label="Dosen">M. Yusuf, S.Kom., M.S.I</td>
-          </tr>
-          <tr>
-            <td data-label="Waktu">15:01 – 17:31</td>
-            <td class="mk" data-label="Mata Kuliah">Manajemen Resiko</td>
-            <td class="ruang" data-label="Ruang">B-602</td>
-            <td data-label="Dosen">Wahyu Anggoro, M.Kom</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+    <div class="day">
+      <h3>Kamis</h3>
+      <div class="mk-card mk-5">
+        <div class="mk-title">Islam Peradaban Melayu</div>
+        <div class="mk-info">07:30 – 09:10 | Ruang C-602 | Dr. Benny Agusti Putra, M.Hum</div>
+      </div>
+      <div class="mk-card mk-6">
+        <div class="mk-title">Technopreneurship</div>
+        <div class="mk-info">12:30 – 15:00 | Ruang B-602 | M. Yusuf, S.Kom., M.S.I</div>
+      </div>
+      <div class="mk-card mk-7">
+        <div class="mk-title">Manajemen Resiko</div>
+        <div class="mk-info">15:01 – 17:31 | Ruang B-602 | Wahyu Anggoro, M.Kom</div>
+      </div>
+    </div>
+  </div>
 
-  </main>
+  <script>
+    const toggle = document.getElementById('darkToggle');
+    toggle.addEventListener('change', () => {
+      document.body.classList.toggle('dark', toggle.checked);
+    });
+  </script>
 </body>
 </html>
