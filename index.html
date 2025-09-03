@@ -85,6 +85,7 @@
       background: #2c2c2c;
       color: #f0f0f0;
     }
+
     /* Toggle switch */
     .switch {
       position: fixed;
@@ -122,6 +123,31 @@
     input:checked + .slider::before {
       transform: translateX(25px);
     }
+
+    /* Tombol WA */
+    .wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: linear-gradient(90deg, #25d366, #128c7e);
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-top: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .wa-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+    .wa-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: white;
+    }
   </style>
 </head>
 <body>
@@ -135,14 +161,26 @@
     <div class="day">
       <h3>Senin</h3>
       <div class="mk-card mk-1">
+        <div class="mk-title">Pemrograman Mobile</div>
+        <div class="mk-dosen">Ahmad Nasukha, S.Hum., M.S.I</div>
+        <div class="mk-info">Ruang B-602 | 08:00 – 11:20</div>
+        <a href="https://chat.whatsapp.com/EBpEPYYMhfw2wMVNuXICkt?mode=ems_wa_t" target="_blank" class="wa-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <path d="M16 .5C7.44.5.5 7.44.5 16c0 2.81.73 5.54 2.11 7.94L.5 31.5l7.79-2.1A15.46 15.46 0 0 0 16 31.5c8.56 0 15.5-6.94 15.5-15.5S24.56.5 16 .5Zm0 28a12.4 12.4 0 0 1-6.32-1.74l-.45-.27-4.63 1.24 1.23-4.51-.29-.46A12.42 12.42 0 1 1 16 28.5Zm6.84-9.4c-.38-.19-2.24-1.11-2.58-1.24-.35-.13-.6-.19-.85.19s-.97 1.24-1.19 1.5c-.22.25-.44.28-.82.09-.38-.19-1.61-.59-3.07-1.87-1.13-1-1.9-2.24-2.13-2.62-.22-.38-.02-.58.17-.77.18-.18.38-.44.57-.66.19-.22.25-.38.38-.63.13-.25.06-.47-.03-.66-.09-.19-.85-2.04-1.17-2.79-.31-.75-.62-.65-.85-.66-.22-.01-.47-.01-.72-.01s-.66.09-1.01.47c-.35.38-1.32 1.29-1.32 3.14s1.35 3.64 1.54 3.89c.19.25 2.66 4.06 6.44 5.7.9.39 1.61.62 2.16.79.91.29 1.74.25 2.39.15.73-.11 2.24-.91 2.56-1.78.32-.88.32-1.63.22-1.78-.09-.16-.34-.25-.72-.44Z"/>
+          </svg>
+          Grup WhatsApp
+        </a>
+      </div>
+      <div class="mk-card mk-2">
         <div class="mk-title">Rekayasa Perangkat Lunak</div>
         <div class="mk-dosen">Dila Nurlaila, M.Kom</div>
         <div class="mk-info">Ruang B-602 | 12:30 – 15:00</div>
-      </div>
-      <div class="mk-card mk-2">
-        <div class="mk-title">Pemrograman Mobile</div>
-        <div class="mk-dosen">Ahmad Nasukha, S.Hum., M.S.I</div>
-        <div class="mk-info">Ruang B-602 | 15:01 – 18:21</div>
+        <a href="https://chat.whatsapp.com/HCeJ6hSh8Nx2ZLDPtmevH6?mode=ems_wa_t" target="_blank" class="wa-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <path d="M16 .5C7.44.5.5 7.44.5 16c0 2.81.73 5.54 2.11 7.94L.5 31.5l7.79-2.1A15.46 15.46 0 0 0 16 31.5c8.56 0 15.5-6.94 15.5-15.5S24.56.5 16 .5Zm0 28a12.4 12.4 0 0 1-6.32-1.74l-.45-.27-4.63 1.24 1.23-4.51-.29-.46A12.42 12.42 0 1 1 16 28.5Zm6.84-9.4c-.38-.19-2.24-1.11-2.58-1.24-.35-.13-.6-.19-.85.19s-.97 1.24-1.19 1.5c-.22.25-.44.28-.82.09-.38-.19-1.61-.59-3.07-1.87-1.13-1-1.9-2.24-2.13-2.62-.22-.38-.02-.58.17-.77.18-.18.38-.44.57-.66.19-.22.25-.38.38-.63.13-.25.06-.47-.03-.66-.09-.19-.85-2.04-1.17-2.79-.31-.75-.62-.65-.85-.66-.22-.01-.47-.01-.72-.01s-.66.09-1.01.47c-.35.38-1.32 1.29-1.32 3.14s1.35 3.64 1.54 3.89c.19.25 2.66 4.06 6.44 5.7.9.39 1.61.62 2.16.79.91.29 1.74.25 2.39.15.73-.11 2.24-.91 2.56-1.78.32-.88.32-1.63.22-1.78-.09-.16-.34-.25-.72-.44Z"/>
+          </svg>
+          Grup WhatsApp
+        </a>
       </div>
     </div>
 
@@ -152,11 +190,23 @@
         <div class="mk-title">Testing dan Implementasi Sistem</div>
         <div class="mk-dosen">Fatima Felawati, S.Kom., M.Kom</div>
         <div class="mk-info">Ruang B-602 | 12:30 – 15:00</div>
+        <a href="https://chat.whatsapp.com/LobGxQFLQaU46fotYhPrK7?mode=ems_wa_t" target="_blank" class="wa-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <path d="M16 .5C7.44.5.5 7.44.5 16c0 2.81.73 5.54 2.11 7.94L.5 31.5l7.79-2.1A15.46 15.46 0 0 0 16 31.5c8.56 0 15.5-6.94 15.5-15.5S24.56.5 16 .5Zm0 28a12.4 12.4 0 0 1-6.32-1.74l-.45-.27-4.63 1.24 1.23-4.51-.29-.46A12.42 12.42 0 1 1 16 28.5Zm6.84-9.4c-.38-.19-2.24-1.11-2.58-1.24-.35-.13-.6-.19-.85.19s-.97 1.24-1.19 1.5c-.22.25-.44.28-.82.09-.38-.19-1.61-.59-3.07-1.87-1.13-1-1.9-2.24-2.13-2.62-.22-.38-.02-.58.17-.77.18-.18.38-.44.57-.66.19-.22.25-.38.38-.63.13-.25.06-.47-.03-.66-.09-.19-.85-2.04-1.17-2.79-.31-.75-.62-.65-.85-.66-.22-.01-.47-.01-.72-.01s-.66.09-1.01.47c-.35.38-1.32 1.29-1.32 3.14s1.35 3.64 1.54 3.89c.19.25 2.66 4.06 6.44 5.7.9.39 1.61.62 2.16.79.91.29 1.74.25 2.39.15.73-.11 2.24-.91 2.56-1.78.32-.88.32-1.63.22-1.78-.09-.16-.34-.25-.72-.44Z"/>
+          </svg>
+          Grup WhatsApp
+        </a>
       </div>
       <div class="mk-card mk-4">
         <div class="mk-title">Multimedia</div>
         <div class="mk-dosen">Pol Metra, M.Kom</div>
         <div class="mk-info">Ruang B-602 | 15:01 – 18:21</div>
+        <a href="https://chat.whatsapp.com/CiXPpUgrUp5E5lGGNNYh2b?mode=ems_wa_t" target="_blank" class="wa-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <path d="M16 .5C7.44.5.5 7.44.5 16c0 2.81.73 5.54 2.11 7.94L.5 31.5l7.79-2.1A15.46 15.46 0 0 0 16 31.5c8.56 0 15.5-6.94 15.5-15.5S24.56.5 16 .5Zm0 28a12.4 12.4 0 0 1-6.32-1.74l-.45-.27-4.63 1.24 1.23-4.51-.29-.46A12.42 12.42 0 1 1 16 28.5Zm6.84-9.4c-.38-.19-2.24-1.11-2.58-1.24-.35-.13-.6-.19-.85.19s-.97 1.24-1.19 1.5c-.22.25-.44.28-.82.09-.38-.19-1.61-.59-3.07-1.87-1.13-1-1.9-2.24-2.13-2.62-.22-.38-.02-.58.17-.77.18-.18.38-.44.57-.66.19-.22.25-.38.38-.63.13-.25.06-.47-.03-.66-.09-.19-.85-2.04-1.17-2.79-.31-.75-.62-.65-.85-.66-.22-.01-.47-.01-.72-.01s-.66.09-1.01.47c-.35.38-1.32 1.29-1.32 3.14s1.35 3.64 1.54 3.89c.19.25 2.66 4.06 6.44 5.7.9.39 1.61.62 2.16.79.91.29 1.74.25 2.39.15.73-.11 2.24-.91 2.56-1.78.32-.88.32-1.63.22-1.78-.09-.16-.34-.25-.72-.44Z"/>
+          </svg>
+          Grup WhatsApp
+        </a>
       </div>
     </div>
 
@@ -166,35 +216,45 @@
         <div class="mk-title">Technopreneurship</div>
         <div class="mk-dosen">M. Yusuf, S.Kom., M.S.I</div>
         <div class="mk-info">Ruang B-602 | 12:30 – 15:00</div>
+        <a href="https://chat.whatsapp.com/GmqTkHW9eq57vNxZD2hPZB?mode=ems_wa_t" target="_blank" class="wa-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <path d="M16 .5C7.44.5.5 7.44.5 16c0 2.81.73 5.54 2.11 7.94L.5 31.5l7.79-2.1A15.46 15.46 0 0 0 16 31.5c8.56 0 15.5-6.94 15.5-15.5S24.56.5 16 .5Zm0 28a12.4 12.4 0 0 1-6.32-1.74l-.45-.27-4.63 1.24 1.23-4.51-.29-.46A12.42 12.42 0 1 1 16 28.5Zm6.84-9.4c-.38-.19-2.24-1.11-2.58-1.24-.35-.13-.6-.19-.85.19s-.97 1.24-1.19 1.5c-.22.25-.44.28-.82.09-.38-.19-1.61-.59-3.07-1.87-1.13-1-1.9-2.24-2.13-2.62-.22-.38-.02-.58.17-.77.18-.18.38-.44.57-.66.19-.22.25-.38.38-.63.13-.25.06-.47-.03-.66-.09-.19-.85-2.04-1.17-2.79-.31-.75-.62-.65-.85-.66-.22-.01-.47-.01-.72-.01s-.66.09-1.01.47c-.35.38-1.32 1.29-1.32 3.14s1.35 3.64 1.54 3.89c.19.25 2.66 4.06 6.44 5.7.9.39 1.61.62 2.16.79.91.29 1.74.25 2.39.15.73-.11 2.24-.91 2.56-1.78.32-.88.32-1.63.22-1.78-.09-.16-.34-.25-.72-.44Z"/>
+          </svg>
+          Grup WhatsApp
+        </a>
       </div>
       <div class="mk-card mk-7">
         <div class="mk-title">Manajemen Resiko</div>
         <div class="mk-dosen">Wahyu Anggoro, M.Kom</div>
         <div class="mk-info">Ruang B-602 | 15:01 – 17:31</div>
+        <a href="https://chat.whatsapp.com/HX7U0nVBikX6qYs59VWONV?mode=ems_wa_t" target="_blank" class="wa-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <path d="M16 .5C7.44.5.5 7.44.5 16c0 2.81.73 5.54 2.11 7.94L.5 31.5l7.79-2.1A15.46 15.46 0 0 0 16 31.5c8.56 0 15.5-6.94 15.5-15.5S24.56.5 16 .5Zm0 28a12.4 12.4 0 0 1-6.32-1.74l-.45-.27-4.63 1.24 1.23-4.51-.29-.46A12.42 12.42 0 1 1 16 28.5Zm6.84-9.4c-.38-.19-2.24-1.11-2.58-1.24-.35-.13-.6-.19-.85.19s-.97 1.24-1.19 1.5c-.22.25-.44.28-.82.09-.38-.19-1.61-.59-3.07-1.87-1.13-1-1.9-2.24-2.13-2.62-.22-.38-.02-.58.17-.77.18-.18.38-.44.57-.66.19-.22.25-.38.38-.63.13-.25.06-.47-.03-.66-.09-.19-.85-2.04-1.17-2.79-.31-.75-.62-.65-.85-.66-.22-.01-.47-.01-.72-.01s-.66.09-1.01.47c-.35.38-1.32 1.29-1.32 3.14s1.35 3.64 1.54 3.89c.19.25 2.66 4.06 6.44 5.7.9.39 1.61.62 2.16.79.91.29 1.74.25 2.39.15.73-.11 2.24-.91 2.56-1.78.32-.88.32-1.63.22-1.78-.09-.16-.34-.25-.72-.44Z"/>
+          </svg>
+          Grup WhatsApp
+        </a>
       </div>
     </div>
   </div>
-
   <script>
-  const toggle = document.getElementById('darkToggle');
+    const toggle = document.getElementById('darkToggle');
+    const body = document.body;
 
-  // Saat halaman dibuka, cek preferensi user di localStorage
-  if (localStorage.getItem('mode') === 'dark') {
-    document.body.classList.add('dark');
-    toggle.checked = true;
-  }
-
-  // Saat toggle diubah, simpan preferensi ke localStorage
-  toggle.addEventListener('change', () => {
-    if (toggle.checked) {
-      document.body.classList.add('dark');
-      localStorage.setItem('mode', 'dark');
-    } else {
-      document.body.classList.remove('dark');
-      localStorage.setItem('mode', 'light');
+    // cek localStorage
+    if (localStorage.getItem('darkMode') === 'enabled') {
+      body.classList.add('dark');
+      toggle.checked = true;
     }
-  });
-</script>
 
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        body.classList.add('dark');
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        body.classList.remove('dark');
+        localStorage.setItem('darkMode', 'disabled');
+      }
+    });
+  </script>
 </body>
 </html>
